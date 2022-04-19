@@ -32,7 +32,7 @@ ARG user=jenkins
 USER root
 
 # Copy agent.jar and symlink it to slave.jar
-COPY ../../jenkins-agent /usr/local/bin/jenkins-agent
+COPY ../jenkins-agent /usr/local/bin/jenkins-agent
 RUN chmod +x /usr/local/bin/jenkins-agent &&\
     ln -s /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-slave
 
