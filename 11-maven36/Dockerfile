@@ -37,7 +37,7 @@ RUN chmod +x /usr/local/bin/jenkins-agent &&\
     ln -s /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-slave
 
 # Install base tools
-RUN apt-get install -y wget curl nano
+RUN apt-get update && apt-get install -y wget curl nano
 
 # Install Maven 3.6.3
 RUN wget https://www-us.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz -P /tmp && \
