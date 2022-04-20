@@ -55,11 +55,4 @@ RUN apt-get update && apt-get install -y sudo
 
 USER ${user}
 
-RUN pwd && whoami
-
-ARG userspace="~/testuserspace"
-RUN mkdir ${userspace} && \
-    chown -R 1000:0 ${userspace} && \
-    chmod -R g+rw ${userspace}
-
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
