@@ -50,11 +50,14 @@ RUN mkdir ${rootspace} && \
     chown -R 1001:0 ${rootspace} && \
     chmod -R g+rw ${rootspace}
 
+# Install sudo for testing userspace access
+RUN apt-get update && apt-get install -y sudo
+
 USER ${user}
 
-ARG userspace="/testuserspace"
+ARG userspace="~/testuserspace"
 RUN mkdir ${userspace} && \
-    chown -R 1001:0 ${userspace} && \
+    chown -R 1000:0 ${userspace} && \
     chmod -R g+rw ${userspace}
 
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
